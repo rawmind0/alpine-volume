@@ -6,8 +6,8 @@ SERVICE_GROUP=${SERVICE_GROUP:-"root"}
 SERVICE_GID=${SERVICE_GID:-"0"}
 SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt"}
 
-addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} \
-adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_WORK} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} 
+addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} 
+adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_VOLUME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} 
 chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_VOLUME}
 
 true
