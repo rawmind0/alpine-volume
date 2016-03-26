@@ -27,8 +27,8 @@ docker run -t \
 ```
 
 These are the default value for the environment variables:
-SERVICE_USER=${SERVICE_USER:-"root"}
-SERVICE_UID=${SERVICE_UID:-"0"}
-SERVICE_GROUP=${SERVICE_GROUP:-"root"}
-SERVICE_GID=${SERVICE_GID:-"0"}
-SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt"}
+- SERVICE_USER=${SERVICE_USER:-"root"}      # User owner of the volume
+- SERVICE_UID=${SERVICE_UID:-"0"}           # UID owner of the volume
+- SERVICE_GROUP=${SERVICE_GROUP:-"root"}    # Group owner of the volume
+- SERVICE_GID=${SERVICE_GID:-"0"}           # GID owner of the volume
+- SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt"}  # Volume to own and expose
