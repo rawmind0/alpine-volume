@@ -11,7 +11,8 @@ docker build -t rawmind/alpine-volume:<version> .
 
 ## Versions
 
-- `0.0.1` [(Dockerfile)](https://github.com/rawmind0/alpine-volume/blob/master/Dockerfile).
+- `0.0.2` [(Dockerfile)](https://github.com/rawmind0/alpine-volume/blob/0.0.2/Dockerfile).
+- `0.0.1` [(Dockerfile)](https://github.com/rawmind0/alpine-volume/blob/0.0.1/Dockerfile).
 
 ## Usage
 
