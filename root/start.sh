@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
-SERVICE_USER=${SERVICE_USER:-"root"}
 SERVICE_UID=${SERVICE_UID:-"0"} 
-SERVICE_GROUP=${SERVICE_GROUP:-"root"} 
 SERVICE_GID=${SERVICE_GID:-"0"}
-SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt"}
+SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
+KEEP_ALIVE=${KEEP_ALIVE:-"0"}
 
-addgroup -g ${SERVICE_GID} ${SERVICE_GROUP} 
-adduser -g "${SERVICE_NAME} user" -D -h ${SERVICE_VOLUME} -G ${SERVICE_GROUP} -s /sbin/nologin -u ${SERVICE_UID} ${SERVICE_USER} 
-chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_VOLUME}
+chown -R ${SERVICE_UID}:${SERVICE_GID} ${SERVICE_VOLUME}
+touch ${SERVICE_VOLUME}/.synced
 
-true
+echo `date` $ME - "${SERVICE_VOLUME} owned by uid:${SERVICE_UID} gid:${SERVICE_GID} exported ...."
+
+if [ "x$KEEP_ALIVE" == "x1" ]; then
+	trap "exit 0" SIGINT SIGTERM
+	while :
+	do
+		echo `date` $ME - "I'm alive"
+		sleep 600
+	done
+fi
+exit 0
