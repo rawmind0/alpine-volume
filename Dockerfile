@@ -1,4 +1,4 @@
-FROM rawmind/alpine-base:0.3.4
+FROM rawmind/alpine-base:3.5-1
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 ADD root /
